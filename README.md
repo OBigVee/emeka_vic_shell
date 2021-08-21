@@ -1,5 +1,7 @@
 # A simple C shell project
-## name
+Write a simple UNIX command interpreter
+## Description 
+this project is a simple UNIX command interpreter that replicates functionalities of the shell. However, the whole of this project is written in the C programming language for ALx Holberton Software Engineering School
 
 ## Synopsis:
 
