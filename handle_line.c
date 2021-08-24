@@ -20,11 +20,13 @@ char *get_line(void)
 	}
 	return (line);
 }
+
 /**
  * split_line - Splits line into args
  * @line: Line of user input
  * Return: Array of args of user input
  */
+
 char **split_line(char *line)
 {
 	size_t buffer_size = TOKENS_BUFFER_SIZE;
