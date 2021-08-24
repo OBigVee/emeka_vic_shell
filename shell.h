@@ -44,8 +44,6 @@ void exit_shell(char **args, char *line, char **env);
 
 void env_shell(char **args, char *line, char **env);
 
-int _strcmp(char *s1, char *s2);
-
 char *find_path(char *args, char *tmp, char *er);
 
 char *search_cwd(char *filename, char *er);
@@ -61,9 +59,4 @@ char *save_path(char *tmp, char *path);
 char *read_dir(char *er, struct dirent *s, char *fi, int l, char *p, char *t);
 
 char *_getenv(char *env);
-
-char *_strstr(char *haystack, char *needle);
-
-int _strlen(char *s);
-
 #endif
