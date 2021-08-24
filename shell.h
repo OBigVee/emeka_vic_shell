@@ -6,4 +6,6 @@
 #include <unistd.h>
 #include <string.h>
 
+char **split_line(char *line)
+char **split_line(char *line)
 #endif
