@@ -39,7 +39,10 @@ char *read_line(void)
         return(line);
 }
 
-
+/**
+ * split_line - tokenize line into words
+ * Return: words
+ */
 
 char **split_line(char *line)
 {
