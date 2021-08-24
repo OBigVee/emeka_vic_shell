@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * main - creates a simple shell
+ * shell - creates a simple shell
  * Return: void
  */
 
-void main(void)
+void shell(void)
 {
-	char *line, token;
+	char *line;
 	char **args;
 	int status = 1;
 
@@ -50,7 +50,7 @@ char *read_line(void)
 char **split_line(char *line)
 {
 	int index = 0;
-	char **words;
+	char **words = malloc(sizeof(char *) * 256); 
 
 	char *word = strtok(line, " \n");
 
