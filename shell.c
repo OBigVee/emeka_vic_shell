@@ -1,26 +1,29 @@
 #include "shell.h"
 
-
+/**
+ * main - creates a simple shell
+ * Return: void
+ */
 
 void main(void)
 {
 	char *line, token;
 	char **args;
-	int status;
+	int status = 1;
 
-	do
-	{
+	do {
 		printf("shell>$");
 
 		line = read_line();
 		args = split_line(line);
+		getcwd(args[0], 2);
 		status = execve(args[0], args, NULL);
 		if (status == -1)
 		{
 			perror("Error");
 		}
 
-	} while(status);
+	} while (status);
 }
 
 /**
@@ -30,17 +33,17 @@ void main(void)
 
 char *read_line(void)
 {
-        char *line = "";
-        size_t *n;
+	char *line = "";
+	size_t *n;
 
-        n = malloc(3);
-        getline(&line, n, stdin);
-
-        return(line);
+	n = malloc(3);
+	getline(&line, n, stdin);
+	return (line);
 }
 
 /**
  * split_line - tokenize line into words
+ * @line: line to tokenize
  * Return: words
  */
 
@@ -49,7 +52,7 @@ char **split_line(char *line)
 	int index = 0;
 	char **words;
 
-	char *word = strtok(line, " ");
+	char *word = strtok(line, " \n");
 
 	while (word != NULL)
 	{
