@@ -1,17 +1,11 @@
 #include "shell.h"
 
 /**
- * main - prints 0 to 9
- * Return: zero
+ * shell_prompt - prints shell prompt
+ * Return: void
  */
 
-int main(void)
+void shell_prompt(void)
 {
-	int i;
-
-	for (i = 0; i <= 9; i++)
-	{
-		printf("this is number %d\n", i);
-	}
-	return (0);
+	printf("vic_emeka_shell>$");
 }
