@@ -42,9 +42,9 @@ char *read_line(void)
 }
 
 /**
- * **split_line - splits a string and puts the into an array
- * @line: string to split
- * Return: array of string
+ * split_line - tokenize line into words
+ * @line: line to tokenize
+ * Return: words
  */
 
 char **split_line(char *line)
