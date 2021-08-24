@@ -90,6 +90,7 @@ When done, please add all urls below (blog post, LinkedIn post, etc.)
 ## Exit Values:
 
 ## Bugs:
+the prompt automatically exit when the command does not exit the interactive MODE or (REPL)
 
 ## Author:
 The author of this project can be found in the AUTHORS file of this project.
