@@ -10,7 +10,7 @@ int main(int ac, char **av, char **env)
 {
 	char *line;
 	char **args;
-	int status = 1;
+	int status;
 	char *tmp = NULL;
 	char *er;
 	char *filename;
@@ -30,7 +30,9 @@ int main(int ac, char **av, char **env)
 			{
 				args[0] = search_cwd(filename, er);
 				if (args[0] == filename)
+				{
 					write(1, er, 5);
+				}
 			}
 		}
 		if (args[0] != er)
@@ -45,5 +47,5 @@ int main(int ac, char **av, char **env)
 	if (!env)
 		(void)env;
 
-	return (0);
+	return (EXIT_SUCCESS);
 }

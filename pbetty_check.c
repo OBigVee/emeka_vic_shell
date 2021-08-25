@@ -7,5 +7,8 @@
 
 void shell_prompt(void)
 {
-	printf("vic_emeka_shell>$");
+	if (isatty(STDIN_FILENO))
+	{
+		write(1, "vic_emeka>$ ", 12);
+	}
 }
