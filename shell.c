@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * shell - Infinite loop that runs shell
+ * main - Infinite loop that runs shell
  * @ac: Arg count
  * @av: args passed to shell at beginning of prog
  * @env: Environment
