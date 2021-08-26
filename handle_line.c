@@ -35,7 +35,7 @@ char **split_line(char *line)
 	if (!tokens)
 	{
 		perror("Could not allocate space for tokens\n");
-		exit(0);
+		exit(EXIT_FAILURE);
 	}
 	token = strtok(line, TOKEN_DELIMITERS);
 	while (token)

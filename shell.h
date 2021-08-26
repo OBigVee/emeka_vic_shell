@@ -58,5 +58,7 @@ char *save_path(char *tmp, char *path);
 
 char *read_dir(char *er, struct dirent *s, char *fi, int l, char *p, char *t);
 
+void shell(int ac, char **av, char **env);
+
 char *_getenv(char *env);
 #endif

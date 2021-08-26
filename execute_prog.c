@@ -40,13 +40,13 @@ int launch_prog(char **args)
 		if (execve(args[0], args, NULL) == -1)
 		{
 			perror("Failed to execute command\n");
-			exit (0);
+			exit (EXIT_FAILURE);
 		}
 	}
 	else if (pid < 0)
 	{
 		perror("Error forking\n");
-		exit (0);
+		exit (EXIT_FAILURE);
 	}
 	else
 	{

@@ -1,12 +1,12 @@
 #include "shell.h"
 /**
- * main - Infinite loop that runs shell
+ * shell - Infinite loop that runs shell
  * @ac: Arg count
  * @av: args passed to shell at beginning of prog
  * @env: Environment
- * Return: zero
+ * Return: void
  */
-int main(int ac, char **av, char **env)
+void shell(int ac, char **av, char **env)
 {
 	char *line;
 	char **args;
@@ -36,7 +36,9 @@ int main(int ac, char **av, char **env)
 			}
 		}
 		if (args[0] != er)
+		{
 			status = execute_prog(args, line, env, flow);
+		}
 		free(line);
 		free(args);
 	} while (status);
@@ -46,6 +48,4 @@ int main(int ac, char **av, char **env)
 		(void)av;
 	if (!env)
 		(void)env;
-
-	return (EXIT_SUCCESS);
 }
