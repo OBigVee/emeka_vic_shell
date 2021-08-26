@@ -4,13 +4,13 @@
  * @ac: Arg count
  * @av: args passed to shell at beginning of prog
  * @env: Environment
- * Return: void
+ * Return: Void
  */
 void shell(int ac, char **av, char **env)
 {
 	char *line;
 	char **args;
-	int status;
+	int status = 1;
 	char *tmp = NULL;
 	char *er;
 	char *filename;
@@ -18,10 +18,10 @@ void shell(int ac, char **av, char **env)
 
 	er = "Error";
 	do {
-		shell_prompt();
-		line = get_line();
+		prompt();
+		line = _getline();
 		args = split_line(line);
-		flow = be_sure(args[0], args);
+		flow = bridge(args[0], args);
 		if (flow == 2)
 		{
 			filename = args[0];
@@ -30,15 +30,11 @@ void shell(int ac, char **av, char **env)
 			{
 				args[0] = search_cwd(filename, er);
 				if (args[0] == filename)
-				{
 					write(1, er, 5);
-				}
 			}
 		}
 		if (args[0] != er)
-		{
 			status = execute_prog(args, line, env, flow);
-		}
 		free(line);
 		free(args);
 	} while (status);

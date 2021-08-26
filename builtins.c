@@ -12,7 +12,7 @@ void exit_shell(char **args, char *line, char **env)
 	free(args);
 	free(line);
 	(void)env;
-	exit (0);
+	exit(0);
 }
 /**
  * env_shell - Prints shell environment
@@ -26,7 +26,7 @@ void env_shell(char **args, char *line, char **env)
 
 	while (env[i] != NULL)
 	{
-		size = strlen(env[i]);
+		size = _strlen(env[i]);
 		write(1, env[i], size);
 		write(1, "\n", 1);
 		i++;

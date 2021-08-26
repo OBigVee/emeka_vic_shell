@@ -1,11 +1,10 @@
 #include "shell.h"
 
 /**
- * get_line - Gets line of user input
+ * _getline - Gets line of user input
  * Return: Pointer to buffer of user input
  */
-
-char *get_line(void)
+char *_getline(void)
 {
 	int temp;
 	char *line = NULL;
@@ -35,7 +34,7 @@ char **split_line(char *line)
 	if (!tokens)
 	{
 		perror("Could not allocate space for tokens\n");
-		exit(EXIT_FAILURE);
+		exit(0);
 	}
 	token = strtok(line, TOKEN_DELIMITERS);
 	while (token)
@@ -47,52 +46,6 @@ char **split_line(char *line)
 	tokens[pos] = NULL;
 	return (tokens);
 }
-
-/**
- * builtins_checker - Checks for builtins
- * @args: Arguments passed from prompt
- * Return: 1 if builtins exist, 0 if they don't
- */
-
-int builtins_checker(char **args)
-{
-	int i;
-	builtins_t list[] = {
-		{"exit", exit_shell},
-		{"env", env_shell},
-		{NULL, NULL}
-	};
-
-	for (i = 0; list[i].arg != NULL; i++)
-	{
-		if (strcmp(list[i].arg, args[0]) == 0)
-			return (1);
-	}
-	return (0);
-}
-
-/**
- * be_sure - Will check to see whether we are dealing with a builtin or not
- * @check: Figures out what to execute
- * @args: Arguments passed from cmdline broken up
- * Return: 1 if user entered a path/builtin, 2 if user entered a binary
- */
-
-int be_sure(char *check, char **args)
-{
-	int i = 0;
-
-	if (builtins_checker(args) == 1)
-		return (1);
-	while (check[i] != '\0')
-	{
-		if (check[i] == '/')
-			return (1);
-		i++;
-	}
-	return (2);
-}
-
 /**
  * check_for_builtins - Checks for builtins
  * @args: Arguments passed from prompt
@@ -100,7 +53,6 @@ int be_sure(char *check, char **args)
  * @env: Environment
  * Return: 1 if builtins exist, 0 if they don't
  */
-
 int check_for_builtins(char **args, char *line, char **env)
 {
 	builtins_t list[] = {
@@ -112,11 +64,65 @@ int check_for_builtins(char **args, char *line, char **env)
 
 	for (i = 0; list[i].arg != NULL; i++)
 	{
-		if (strcmp(list[i].arg, args[0]) == 0)
+		if (_strcmp(list[i].arg, args[0]) == 0)
 		{
 			list[i].builtin(args, line, env);
 			return (1);
 		}
+	}
+	return (0);
+}
+/**
+ * launch_prog - Forks and launches unix cmd
+ * @args: Args for cmd
+ * Return: 1 on success
+ */
+int launch_prog(char **args)
+{
+	pid_t pid, wpid;
+	int status;
+
+	pid = fork();
+	if (pid == 0)
+	{
+		if (execve(args[0], args, NULL) == -1)
+		{
+			perror("Failed to execute command\n");
+			exit(0);
+		}
+	}
+	else if (pid < 0)
+	{
+		perror("Error forking\n");
+		exit(0);
+	}
+	else
+	{
+		do {
+			wpid = waitpid(pid, &status, WUNTRACED);
+		} while (!WIFEXITED(status) && WIFSIGNALED(status));
+	}
+	(void)wpid;
+	return (1);
+}
+/**
+ * builtins_checker - Checks for builtins
+ * @args: Arguments passed from prompt
+ * Return: 1 if builtins exist, 0 if they don't
+ */
+int builtins_checker(char **args)
+{
+	int i;
+	builtins_t list[] = {
+		{"exit", exit_shell},
+		{"env", env_shell},
+		{NULL, NULL}
+	};
+
+	for (i = 0; list[i].arg != NULL; i++)
+	{
+		if (_strcmp(list[i].arg, args[0]) == 0)
+			return (1);
 	}
 	return (0);
 }

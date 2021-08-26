@@ -25,7 +25,7 @@ char *find_path(char *filename, char *tmp, char *er)
 		if (!dir)
 		{
 			printf("Error! Unable to open directory.\n");
-			exit (EXIT_SUCCESS);
+			exit(0);
 		}
 		while ((sd = readdir(dir)))
 		{
@@ -109,31 +109,4 @@ char *save_path(char *tmp, char *path)
 		return (path);
 	}
 	return ("error");
-}
-
-/**
- * _getenv - gets env of input
- * @env: input
- * Return: env without =
- */
-
-char *_getenv(char *env)
-{
-	int i = 0, n = 0;
-	char *temp, *res;
-
-	while (environ[i] != NULL)
-	{
-		if (strcmp(environ[i], env) == 0)
-			temp = environ[i];
-		i++;
-	}
-
-	while (temp[n] != '\0')
-	{
-		if (strcmp(temp, env) == 0)
-			res = strstr(temp, "/");
-		n++;
-	}
-	return (res);
 }
