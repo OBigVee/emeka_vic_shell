@@ -1,6 +1,6 @@
 # A simple C shell project
 Write a simple UNIX command interpreter
-## Description 
+## Description
 this project is a simple UNIX command interpreter that replicates functionalities of the shell. However, the whole of this project is written in the C programming language for ALx Holberton Software Engineering School
 
 ## Synopsis:
@@ -22,10 +22,10 @@ How to suspend the execution of a process until one of its children terminates
 What is EOF / “end-of-file”?
 
 ## Description:
-Task 0: 
+Task 0:
 Write a README
 Write a man for your shell.
-You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. Format, 
+You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. Format,
 
 Task 1:
 Write a beautiful code that passes the Betty checks
