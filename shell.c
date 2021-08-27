@@ -4,9 +4,9 @@
  * @ac: Arg count
  * @av: args passed to shell at beginning of prog
  * @env: Environment
- * Return: zero
+ * Return: Void
  */
-int main(int ac, char **av, char **env)
+void shell(int ac, char **av, char **env)
 {
 	char *line;
 	char **args;
@@ -18,10 +18,10 @@ int main(int ac, char **av, char **env)
 
 	er = "Error";
 	do {
-		shell_prompt();
-		line = get_line();
+		prompt();
+		line = _getline();
 		args = split_line(line);
-		flow = be_sure(args[0], args);
+		flow = bridge(args[0], args);
 		if (flow == 2)
 		{
 			filename = args[0];
@@ -44,6 +44,4 @@ int main(int ac, char **av, char **env)
 		(void)av;
 	if (!env)
 		(void)env;
-
-	return (0);
 }

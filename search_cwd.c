@@ -1,11 +1,10 @@
 #include "shell.h"
-
 /**
  * search_cwd - look for current working dir
  * @filename: file name
+ * @er: holds error
  * Return: current working dir
  */
-
 char *search_cwd(char *filename, char *er)
 {
 	DIR *dir;
@@ -35,9 +34,13 @@ char *search_cwd(char *filename, char *er)
 				strcat(ret, filename);
 				closedir(dir);
 				if (!(access(ret, X_OK)))
+				{
 					return (ret);
+				}
 				else
+				{
 					write(2, er, 5);
+				}
 			}
 		}
 	}
