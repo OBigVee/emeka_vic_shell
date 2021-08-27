@@ -82,6 +82,7 @@ Only one blog post by team
 The blog post must be done and published before the first deadline (it will be part of the manual review)
 Please, remember that these blogs must be written in English to further your technical ability in a variety of settings
 When done, please add all urls below (blog post, LinkedIn post, etc.)
+[Medium blog post](https://medium.com/@victor-ade/the-mystery-of-how-shell-commands-works-854ff7a66a99#4c16-da2e20923a4)
 
 ## Options:
 
