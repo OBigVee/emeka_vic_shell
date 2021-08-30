@@ -84,14 +84,8 @@ Please, remember that these blogs must be written in English to further your tec
 When done, please add all urls below (blog post, LinkedIn post, etc.)
 [Medium blog post](https://medium.com/@victor-ade/the-mystery-of-how-shell-commands-works-854ff7a66a99#4c16-da2e20923a4)
 
-## Options:
 
 ## Examples:
-
-## Exit Values:
-
-## Bugs:
-the prompt automatically exit when the command does not exit the interactive MODE or (REPL)
 
 ## Author:
 The author of this project can be found in the AUTHORS file of this project.
