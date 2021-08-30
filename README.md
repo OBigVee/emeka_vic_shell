@@ -84,9 +84,18 @@ Please, remember that these blogs must be written in English to further your tec
 When done, please add all urls below (blog post, LinkedIn post, etc.)
 [Medium blog post](https://medium.com/@victor-ade/the-mystery-of-how-shell-commands-works-854ff7a66a99#4c16-da2e20923a4)
 
+## use this shell project
+to use run this  shell project, use ```.\hsh ``` there's is a compiled hsh object file for x86_64 system architecture. 
 
 ## Examples:
-
+```
+emeka_vic>$ ls                                                                          
+AUTHORS    bridge.c    extra.c      hsh                 search_cwd.c                    
+README.md  builtins.c  find_path.c  main.c              shell.c                         
+_getenv.c  execute.c   helper.c     man_1_simple_shell  shell.h                         
+emeka_vic>$                                                                             
+                  
+```
 ## Author:
 The author of this project can be found in the AUTHORS file of this project.
 
