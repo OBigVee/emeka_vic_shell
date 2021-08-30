@@ -4,7 +4,7 @@
  * exit_shell - This will run the builtin exit
  * @line: Line buffer of user input
  * @args: Arguments from user
- * @env: Environment
+ * @env: Environment variables
  * Return: Void
  */
 void exit_shell(char **args, char *line, char **env)
@@ -18,7 +18,7 @@ void exit_shell(char **args, char *line, char **env)
  * env_shell - Prints shell environment
  * @args: Arguments split from cmdline
  * @line: User input buffer
- * @env: Environment
+ * @env: Environment variables
  */
 void env_shell(char **args, char *line, char **env)
 {
